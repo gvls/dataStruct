@@ -1,5 +1,6 @@
 ##  stack
-先入后出
+后入先出
+only can add to top and delete from top
 
 ###   array
 ```shell
@@ -18,15 +19,16 @@
 
 ###   link
 ```shell
-	[头指针]
-		|
-		v
-	[头节点]
-		|
-		v
-	[首元节点] (top element)
-		|
-		v
-	   ...
+[头指针]-->	[首元节点] (top element)
+				|
+				v
+			[第二节点]
+				|
+				v
+			   ...
 ```
 
+###   apply
+recursion
+斐波那契数列
+四则运算

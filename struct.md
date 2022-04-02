@@ -57,7 +57,7 @@ elment is 一个挨着一个
 ```
 
 * link 链式
-element is 不一定一个挨着一个
+element is **不一定**一个挨着一个
 use pointer to location palce of other element
 ```shell
   ____   ____________   ______

@@ -1,5 +1,6 @@
 ##  queue
 队列/排队 have order. 先进先出.
+only can add to tail and delete from head
 
 ###   array
 search is fast
@@ -21,14 +22,14 @@ search is fast
 ```
 
 
-###   one-way link
+###   link
 insert and delete is fast
 
 ```shell
-						first element
-							|
-							v
-[头指针] -> [头节点] -> [首元节点] -> ...
+			first element
+				|
+				v
+[头节点] -> [首元节点] -> [第二节点] -> ...
 
 ```
 
@@ -40,7 +41,3 @@ insert and delete is fast
 1. save element
 2. left node connect right node 
 
-
-
-###   two-way link
-have next pointer and pre pointer
