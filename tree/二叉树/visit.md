@@ -1,9 +1,8 @@
-##  二叉树
-basic on tree
-one node only 1~2 son node
+##  visit
+from root node to other node and all node only be visit once
 
-###   visit
-use recursion to visit
+###   recurtion
+know 中序 and 前序/后序 can confirm one 二叉树
 
 * 前序遍历
 1. output **current** node information
@@ -20,3 +19,8 @@ use recursion to visit
 2. output right node infomation 
 3. output **current** node information
 
+
+
+###   queue
+* 层序遍历
+1. from left to right and from top to bottom
