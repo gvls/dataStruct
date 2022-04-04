@@ -30,3 +30,21 @@ max of all 结点的度
 
 * 森林
 collection of tree which 互不相交
+
+* 路径长度
+count of line which one node to other node
+
+* 带权路径长度
+路径长度 * 权 of node
+
+* 结点路径长度
+count of line which root node to here node
+
+* 结点带权路径长度
+结点路径长度 * 权 of node
+
+* 树的路径长度
+sum of all 叶子结点路径长度
+
+* 树的带权路径长度
+sum of all 叶子结点带权路径长度
