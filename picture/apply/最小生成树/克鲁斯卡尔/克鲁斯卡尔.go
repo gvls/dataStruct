@@ -56,6 +56,9 @@ func main() {
 // kruskal
 func kruskal(G []Edge) {
 	tail := [MAXVERTEX]int{} // 多个箭头的集合，有且只有一个尾部
+	for k := range tail {    // 用Golang则可以忽略
+		tail[k] = 0
+	}
 
 	for _, v := range G { // 连续取 边最短
 		b := find(tail, v.Begin)
