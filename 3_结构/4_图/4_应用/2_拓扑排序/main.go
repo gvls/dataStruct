@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 // package main O(v+e)
-// use stack like dfs
-// use queue like bdf
+// 使用 栈 就像 dfs
+// 使用 队列 就像 bfs
 
 // Edge
 type Edge struct {
@@ -52,14 +52,14 @@ func Topu(G [MAXVERTEX]Vertex) {
 	stack := [MAXVERTEX]int{}
 	top := 0
 	count := 0
-	// push
+	// 入度为0 的顶点 入栈
 	for k, v := range G {
 		if v.In == 0 {
 			stack[top] = k
 			top++
 		}
 	}
-	// get result
+	// 得到 拓扑排序
 	for top != 0 {
 		// pop
 		top--

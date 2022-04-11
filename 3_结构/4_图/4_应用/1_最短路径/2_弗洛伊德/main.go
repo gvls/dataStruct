@@ -2,10 +2,10 @@ package main
 
 import "fmt"
 
-// package main calculate any vertex to other vertex O(v^3)
-// suit more vertex to more vertex  or  稠密图
-// use 动态规划, 不断添加中间点 优化最短路径
-// suit 有向图/无向图
+// package main 计算所有顶点到其他顶点的距离 O(n^3)
+// 适合 计算所有顶点到其他顶点的距离  or  稠密图
+// 使用 动态规划, 不断添加中间点 优化最短路径
+// 适合 有向图/无向图
 
 const (
 	MAXVERTEX int = 9

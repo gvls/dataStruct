@@ -2,8 +2,9 @@ package main
 
 import "fmt"
 
-// package main 不断取最短边 会形成回路就跳过 直到取完所有边 O(eloge)
-// suit less edge
+// package main 不断取最短边 若会形成回路就跳过该边 直到取完所有边 O(eloge)
+// 适合少边
+// 适用于无向图
 
 const (
 	MAXVERTEX int = 9
@@ -55,16 +56,21 @@ func main() {
 
 // kruskal
 func kruskal(G []Edge) {
+	// value	1 2 3
+	// 			^ ^ ^ ^
+	// 			| | | |
+	// index	0 1 2 3
 	tail := [MAXVERTEX]int{} // 多个箭头的集合，有且只有一个尾部
 	for k := range tail {    // 用Golang则可以忽略
 		tail[k] = 0
 	}
 
+	// 找 n-1 条边
 	for _, v := range G { // 连续取 边最短
 		b := find(tail, v.Begin)
 		e := find(tail, v.End)
-		if b != e { // not exist circulation; 已有箭头集合的头部 != 已有箭头集合的头部
-			tail[b] = e // 已有箭头集合的头部 链接 新点
+		if b != e { // 不存在环; 已有箭头集合的头部 != 已有箭头集合的头部
+			tail[b] = e // 已有箭头集合的头部 与 新点 链接
 			fmt.Println(v.Begin, v.End, v.Weight)
 		}
 

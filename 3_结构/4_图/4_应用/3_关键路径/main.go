@@ -72,8 +72,9 @@ func Topo(G [MAXVERTEX]Vertex) (*[MAXVERTEX]int, int, *[MAXVERTEX]int) {
 	for i := 0; i < MAXVERTEX; i++ {
 		etv[i] = 0
 	}
-	top2 := 0
-	stack2 := [MAXVERTEX]int{}
+	topoTop := 0
+	// 拓扑序列
+	topoStack := [MAXVERTEX]int{}
 
 	// 得到整个流程的顶点序列 和对应顶点序列在所有到达它的路径中最长的时间
 	// 当该点 前面花费最长时间的 活动加事件 做完，该点才能发生。也就是最早发生时间
@@ -82,8 +83,8 @@ func Topo(G [MAXVERTEX]Vertex) (*[MAXVERTEX]int, int, *[MAXVERTEX]int) {
 		t := stack[top]
 		count++
 
-		stack2[top2] = t
-		top2++
+		topoStack[topoTop] = t
+		topoTop++
 
 		for i := G[t].Edge; i != nil; i = i.Next {
 			// 处理边及弧头点
@@ -105,14 +106,14 @@ func Topo(G [MAXVERTEX]Vertex) (*[MAXVERTEX]int, int, *[MAXVERTEX]int) {
 		return nil, 0, nil
 	}
 	fmt.Println("is AOV")
-	return &stack2, top2, &etv
+	return &topoStack, topoTop, &etv
 }
 
 // CriticalPath
 func CriticalPath(G [MAXVERTEX]Vertex) {
-	stack2, top2, etv := Topo(G)
+	topoStack, topoTop, etv := Topo(G)
 	fmt.Println("")
-	for k, v := range stack2 {
+	for k, v := range topoStack {
 		fmt.Printf("事件 %d 最早在时间 %d 才能发生\n", v, etv[k])
 	}
 	fmt.Println("")
@@ -124,9 +125,9 @@ func CriticalPath(G [MAXVERTEX]Vertex) {
 	fmt.Println(ltv)
 
 	// 只有 该事件的后面的事件 才能决定该时间是否能晚点发生。假如该事件的后面的事件 在等待其他事件和活动，并且 该事件和到达后面事件之前的活动已经完成，那个该事件可以晚点做
-	for top2 != 0 {
-		top2--
-		b := stack2[top2]
+	for topoTop != 0 {
+		topoTop--
+		b := topoStack[topoTop]
 
 		for i := G[b].Edge; i != nil; i = i.Next {
 			e := i.HeadIndex
